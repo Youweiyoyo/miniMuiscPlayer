@@ -4,5 +4,19 @@
   shape="round" 
   value="{{ value }}" 
   placeholder="请输入搜索关键词" 
-  bind:click-input="toSearchPage"
+  bind:click-input="toSearchPage" 
 />
+<swiper 
+class="swiper"
+indicator-dots autoplay 
+circular 	
+indicator-color="#fff" 	
+indicator-active-color="#3366CC"
+style="height: {{swiperHeight}}px"
+>
+  <block wx:for="{{bannerList}}" wx:key="bannerId">
+    <swiper-item class="swiperItem">
+      <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="imageLoad"></image>
+    </swiper-item>
+  </block>
+</swiper>

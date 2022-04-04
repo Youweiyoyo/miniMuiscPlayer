@@ -1,18 +1,25 @@
 // pages/Home-music/index.js
+
+import { getBannerData } from "../../api/api_music/index";
+import getElmHeight from "../../utils/getElementHeight";
+import throttle from "../../utils/throttle";
+
+const throttleGetEleHeight = throttle(getElmHeight)
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      bannerList: [],
+      swiperHeight: 0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+      this.getBannerDataInfo()
     },
 
     /**
@@ -20,6 +27,25 @@ Page({
      */
     onReady() {
 
+    },
+
+    /**
+     * 获取轮播图数据
+     */
+    async getBannerDataInfo(){
+      const result = await getBannerData(2)
+      this.setData({bannerList: result.banners})
+    },
+
+    /**
+     * image 组件 图片加载完成事件
+     * 通过调用 wx.createSelectorQuery() 在图片加载完的事件中，
+     * 拿到图片的高度，对 swiper 的高度进行动态赋值
+     */
+    imageLoad(){    
+      throttleGetEleHeight('.swiper-image').then(res => {
+        this.setData({swiperHeight: res.height})
+      })
     },
 
     /**
