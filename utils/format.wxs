@@ -1,0 +1,30 @@
+// 格式化播放量
+function formatCont(count){
+    var Count = parseInt(count)
+    if(Count > 100000000){
+        return (Count / 100000000).toFixed(1) + "亿"
+    }else if (Count > 10000){
+        return (Count / 10000).toFixed(1) + "万"
+    }else {
+        return Count + ""
+    }
+}
+
+// 补零
+function padLeftZero(time){
+    time = time + ""
+    return ('00' + time).slice(time.length)
+}
+
+// 格式化时间
+function formatDuration(duration){
+    duration = duration / 1000
+    var minute = Math.floor(duration / 60)
+    var second = Math.floor(duration) % 60
+    return padLeftZero(minute) + ':' + padLeftZero(second)
+}
+
+module.exports = {
+    formatCont: formatCont,
+    formatDuration: formatDuration
+}

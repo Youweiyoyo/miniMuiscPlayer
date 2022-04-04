@@ -1,0 +1,7 @@
+<!-- video 页面 -->
+<view class="video">
+    <view class="item" wx:for="{{videoInfoList}}" wx:key="id">
+        <video-item item="{{item}}"></video-item>
+    </view>
+</view>
+ 
