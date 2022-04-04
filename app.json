@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/Home-music/index",
-        "pages/Home-video/index"
+        "pages/Home-video/index",
+        "pages/Home-video-deatil/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

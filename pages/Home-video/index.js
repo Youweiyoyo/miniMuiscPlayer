@@ -37,6 +37,15 @@ Page({
         }
     },
 
+    // 点击视频组件获取详情信息
+    clickVideoInfo(event){
+        // 解构出 vodeo item 的 id
+        const { id } = event.currentTarget.dataset.videoitemdetail
+        wx.navigateTo({
+          url: '/pages/Home-video-deatil/index?id=' + id,
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
