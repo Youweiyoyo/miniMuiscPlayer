@@ -39,8 +39,6 @@ Page({
 
     /**
      * image 组件 图片加载完成事件
-     * 通过调用 wx.createSelectorQuery() 在图片加载完的事件中，
-     * 拿到图片的高度，对 swiper 的高度进行动态赋值
      */
     imageLoad(){    
       throttleGetEleHeight('.swiper-image').then(res => {
