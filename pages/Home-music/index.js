@@ -62,5 +62,14 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    /**
+     * 跳转搜索详情页
+     */
+    toSearchPage(){
+      wx.navigateTo({
+        url: '/pages/Home-music-search/index',
+      })
     }
 })

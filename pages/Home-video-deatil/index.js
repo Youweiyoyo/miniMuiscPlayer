@@ -1,11 +1,16 @@
 // pages/Home-video-deatil/index.js
+
+import { getMVInfo, getMvUrl, getMvDetail } from '../../api/api_video/index'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        MvInfo: {},
+        MvUrlInfo: {},
+        MvDateil: []
     },
 
     /**
@@ -13,6 +18,8 @@ Page({
      */
     onLoad(options) {
         console.log(options, "options");
+        const { id } = options
+        this.getPageInfo(id)
     },
 
     /**
@@ -20,6 +27,21 @@ Page({
      */
     onReady() {
 
+    },
+
+    /**
+     * 获取视频信息
+     */
+    getPageInfo(id){ 
+        getMVInfo(id).then((res)=> {
+            this.setData({MvInfo: res.data})
+        })
+        getMvUrl(id).then((res) => {
+            this.setData({MvUrlInfo: res.data})
+        })
+        getMvDetail(id).then((res) => {
+            this.setData({MvDateil: res.data})
+        })
     },
 
     /**
