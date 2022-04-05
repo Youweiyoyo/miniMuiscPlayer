@@ -29,3 +29,6 @@ style="height: {{swiperHeight}}px"
     <music-item item="{{item}}"></music-item> 
   </block>
 </view>
+
+<!-- 热门歌单 -->
+<music-hot></music-hot>

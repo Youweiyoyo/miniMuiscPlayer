@@ -16,7 +16,7 @@ export function getBannerData(type){
 }
 
 /**
- * 获取热门歌单
+ * 获取推荐歌曲
  * @param {number} idx
  * 0 ：新歌
  * 1 ：热歌
@@ -28,3 +28,15 @@ export function getHotMusic(idx){
     idx
   })
 }
+
+/**
+ * 获取热门歌单
+ * @param {number} limit 
+ * @param {number} offset 
+ */
+export function getSongList(limit,offset){
+  return baseServer.get('/top/playlist', {
+    limit,
+    offset
+  })
+} 
