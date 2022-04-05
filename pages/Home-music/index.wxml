@@ -24,5 +24,8 @@ style="height: {{swiperHeight}}px"
 
 <!-- 推荐歌曲 -->
 <view class="Recommend">
-  <area-header title="推荐歌曲"></area-header>
+  <area-header title="推荐歌曲" ></area-header>
+  <block wx:for="{{hotMusicList}}" wx:key="id">
+    <music-item item="{{item}}"></music-item> 
+  </block>
 </view>

@@ -14,3 +14,17 @@ export function getBannerData(type){
     type
   })
 }
+
+/**
+ * 获取热门歌单
+ * @param {number} idx
+ * 0 ：新歌
+ * 1 ：热歌
+ * 2 ：原创
+ * 3 ：飙升
+ */
+export function getHotMusic(idx){
+  return baseServer.get('/top/list',{
+    idx
+  })
+}

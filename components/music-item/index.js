@@ -1,19 +1,13 @@
-// components/area-header/index.js
+// components/music-item/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String,
-      value: '推荐歌曲'
-    },
-
-    rightText: {
-      type: String,
-      value: '更多'
-    },
-    
+    item: {
+      type: Object,
+      value: {}
+    }
   },
 
   /**

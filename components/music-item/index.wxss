@@ -1,0 +1,28 @@
+/* components/music-item/index.wxss */
+.music-item {
+  display: flex;
+  padding: 16rpx 0;
+  align-items: center;
+}
+.image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+}
+.content {
+  flex: 1;
+  margin-left: 16rpx;
+}
+.content .title_info {
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  color: #999;
+}
+.content .title{
+  font-size: 32rpx;
+  color: #555;
+}
+.item-right .icon{
+  width: 50rpx;
+  height: 50rpx;
+}

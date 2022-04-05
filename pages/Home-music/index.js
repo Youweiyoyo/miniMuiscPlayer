@@ -1,5 +1,5 @@
 // pages/Home-music/index.js
-
+import { rankingStore } from '../../store/index'
 import { getBannerData } from "../../api/api_music/index";
 import getElmHeight from "../../utils/getElementHeight";
 import throttle from "../../utils/throttle";
@@ -12,7 +12,8 @@ Page({
      */
     data: {
       bannerList: [],
-      swiperHeight: 0
+      swiperHeight: 0,
+      hotMusicList: []
     },
 
     /**
@@ -20,6 +21,14 @@ Page({
      */
     onLoad(options) {
       this.getBannerDataInfo()
+      // 发起异步请求
+      rankingStore.dispatch('getRankingDataAction')
+      // 监听获取 store 中的数据
+      rankingStore.onState('HotMusicList', (res) => {
+        if(!res.tracks) return;
+        const recommend = res.tracks.slice(0,6)
+        this.setData({hotMusicList: recommend})
+      })
     },
 
     /**

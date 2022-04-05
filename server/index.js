@@ -16,7 +16,7 @@ class Server {
                 fail: function(err){
                     reject(err.error)
                 }
-              })
+            })
         })
     }
 
