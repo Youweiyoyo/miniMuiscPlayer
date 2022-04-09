@@ -35,3 +35,13 @@ style="height: {{swiperHeight}}px"
 
 <!-- 推荐歌单 -->
 <music-hot title="推荐歌单" item="{{recommendSongMusic}}"></music-hot>
+
+<!-- 巅峰榜 -->
+<view class="ranking">
+  <area-header title="巅峰榜"></area-header>
+  <view class="ranking-list">
+    <block wx:for="{{rankings}}" wx:key="name">
+      <ranking-item item="{{item}}"></ranking-item>
+    </block>
+  </view>
+</view>

@@ -15,7 +15,8 @@ Page({
       swiperHeight: 0,
       hotMusicList: [],
       songMusic: [],
-      recommendSongMusic: []
+      recommendSongMusic: [],
+      rankings: {0: {}, 2: {}, 3: {}}
     },
 
     /**
@@ -33,6 +34,9 @@ Page({
         const recommend = res.tracks.slice(0,6)
         this.setData({hotMusicList: recommend})
       })
+      rankingStore.onState('newRankingMusicList', this.getRankingStoreDataMethods(0))
+      rankingStore.onState('originMusicList', this.getRankingStoreDataMethods(2))
+      rankingStore.onState('upMusicList',this.getRankingStoreDataMethods(3))
     },
 
     /**
@@ -123,5 +127,22 @@ Page({
       wx.navigateTo({
         url: '/pages/Home-music-search/index',
       })
+    },
+
+    /**
+     * 封装统一监听 store 的方法
+     */
+    getRankingStoreDataMethods(idx){
+      return (res) => {
+        console.log(res, "Res~~~");
+        if(Object.keys(res).length === 0) return;
+        const name = res.name
+        const coverImageUrl = res.coverImgUrl
+        const playCount = res.playCount
+        const songList = res.tracks.slice(0, 3)
+        const rankingObj = {name, coverImageUrl, songList, playCount}
+        const newRankings = {...this.data.rankings, [idx]: rankingObj}
+        this.setData({rankings: newRankings})
+      }
     }
 })
