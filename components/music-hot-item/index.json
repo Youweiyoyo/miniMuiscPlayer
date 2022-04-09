@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "area-header": "/components/area-header/index"
+    "area-header": "/components/area-header/index",
+    "menu-item": "/components/music-hot-item-men/index"
   }
 }

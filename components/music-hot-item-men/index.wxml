@@ -1,0 +1,8 @@
+<wxs src="../../utils/format.wxs" module="fomter"></wxs>
+<view class="item">
+  <view class="top">
+    <image class="image" mode="widthFix" src="{{menuItem.coverImgUrl}}"></image> 
+    <view class="play-counter">{{fomter.formatCont(menuItem.playCount)}}</view>
+  </view>
+  <view class="bottom">{{menuItem.name}}</view>
+</view>

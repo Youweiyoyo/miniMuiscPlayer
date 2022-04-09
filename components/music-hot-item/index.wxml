@@ -1,7 +1,9 @@
 <!--components/music-hot-item/index.wxml-->
   <area-header title="热门歌单"></area-header>
   <scroll-view class="list" scroll-x>
-    <block wx:for="{{6}}" wx:key="*this">
-      <view class="list-item"></view>
+    <block wx:for="{{item}}" wx:key="id">
+      <view class="list-item">
+        <menu-item menuItem="{{item}}"></menu-item>
+      </view>
     </block>
   </scroll-view>

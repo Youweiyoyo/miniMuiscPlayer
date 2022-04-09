@@ -33,9 +33,12 @@ export function getHotMusic(idx){
  * 获取热门歌单
  * @param {number} limit 
  * @param {number} offset 
+ * @param {number} cat 
+ * cat 默认为全部,可选:['华语','古⻛','欧美','流⾏']
  */
-export function getSongList(limit,offset){
+export function getSongList(cat='全部',limit = 6,offset = 0){
   return baseServer.get('/top/playlist', {
+    cat,
     limit,
     offset
   })

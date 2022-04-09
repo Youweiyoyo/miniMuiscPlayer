@@ -1,6 +1,6 @@
 // pages/Home-music/index.js
 import { rankingStore } from '../../store/index'
-import { getBannerData } from "../../api/api_music/index";
+import { getBannerData, getSongList } from "../../api/api_music/index";
 import getElmHeight from "../../utils/getElementHeight";
 import throttle from "../../utils/throttle";
 
@@ -13,7 +13,9 @@ Page({
     data: {
       bannerList: [],
       swiperHeight: 0,
-      hotMusicList: []
+      hotMusicList: [],
+      songMusic: [],
+      recommendSongMusic: []
     },
 
     /**
@@ -21,6 +23,7 @@ Page({
      */
     onLoad(options) {
       this.getBannerDataInfo()
+      this.getSoneMusisDate()
       // 发起异步请求
       rankingStore.dispatch('getRankingDataAction')
       // 监听获取 store 中的数据
@@ -53,6 +56,14 @@ Page({
       throttleGetEleHeight('.swiper-image').then(res => {
         this.setData({swiperHeight: res.height})
       })
+    },
+
+    /**
+     * 获取热门歌单 
+     */
+    async getSoneMusisDate(){
+      const result = await getSongList()
+      this.setData({songMusic: result.playlists})
     },
 
     /**
