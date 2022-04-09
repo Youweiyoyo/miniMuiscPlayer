@@ -24,6 +24,7 @@ Page({
     onLoad(options) {
       this.getBannerDataInfo()
       this.getSoneMusisDate()
+      this.getRecommendDate()
       // 发起异步请求
       rankingStore.dispatch('getRankingDataAction')
       // 监听获取 store 中的数据
@@ -66,6 +67,13 @@ Page({
       this.setData({songMusic: result.playlists})
     },
 
+    /**
+     * 获取推荐歌单
+     */
+    async getRecommendDate(){
+      const result = await getSongList('华语')
+      this.setData({recommendSongMusic: result.playlists})
+    },
     /**
      * 生命周期函数--监听页面显示
      */

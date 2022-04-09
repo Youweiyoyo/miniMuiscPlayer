@@ -1,5 +1,5 @@
 <!--components/music-hot-item/index.wxml-->
-  <area-header title="热门歌单"></area-header>
+  <area-header title="{{title}}"></area-header>
   <scroll-view class="list" scroll-x>
     <block wx:for="{{item}}" wx:key="id">
       <view class="list-item">
