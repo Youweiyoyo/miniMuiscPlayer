@@ -1,14 +1,27 @@
 <!--pages/Home-music-search/index.wxml-->
-<van-search background="#f7f7f7" shape="round" clearable></van-search>
+<van-search value="{{searchValue}}" bind:change="searchChange"  background="#f7f7f7" shape="round" clearable></van-search>
 
 
-<view class="hotList">
+<!-- 热门搜索 -->
+<view class="hotList" wx:if="{{!searchValue && !SuggestMusicList.lenght}}">
   <area-header title="热门搜索" showRight="{{false}}"></area-header>
   <view class="searchList">
-  <block wx:for="{{hotSearchList}}" wx:key="{{first}}">
-    <view class="tag">{{item.first}}</view>
-  </block>
-</view>
+    <block wx:for="{{hotSearchList}}" wx:key="first">
+      <view class="tag">{{item.first}}</view>
+    </block>
+  </view>
 </view>
 
+<!-- 推荐歌曲 -->
+<view class="suggest" wx:else="{{ SuggestMusicList.lenght }}">
+  <view class="title">搜索："{{searchValue}}"</view>
+  <view class="list">
+    <block wx:for="{{SuggestMusicList}}" wx:key="feature">
+    <view class="item">
+      <image class="icon" mode="widthFix" src="/assets/images/icons/search_icon.png"></image>
+        <text class="text">{{item.keyword}}</text>
+    </view>
+    </block>
+  </view>
+</view>
 

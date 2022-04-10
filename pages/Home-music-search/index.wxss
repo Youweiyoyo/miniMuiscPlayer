@@ -24,3 +24,28 @@ page {
 .hotList .tag:first-of-type {
   color: #ff6600;
 }
+
+.suggest {
+  padding: 10rpx;
+}
+
+.suggest .title {
+  color: #ff0066;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.suggest .item {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.suggest .item .icon {
+  width: 66rpx;
+  margin-left: -20rpx;
+}
+
+.suggest .item .text {
+  font-size: 28rpx;
+}
