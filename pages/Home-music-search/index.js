@@ -1,18 +1,19 @@
 // pages/Home-music-search/index.js
+import { getHotSearch } from '../../api/api-search/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    hotSearchList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getHotMusicSearch()
   },
 
   /**
@@ -62,5 +63,14 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  /**
+   * 获取热门歌曲搜索
+   */
+  async getHotMusicSearch(){
+    const res = await getHotSearch()
+    const { hots } = res.result
+    this.setData({hotSearchList: hots})
   }
 })

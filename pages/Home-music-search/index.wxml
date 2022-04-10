@@ -1,2 +1,14 @@
 <!--pages/Home-music-search/index.wxml-->
-<text>pages/Home-music-search/index.wxml</text>
+<van-search background="#f7f7f7" shape="round" clearable></van-search>
+
+
+<view class="hotList">
+  <area-header title="热门搜索" showRight="{{false}}"></area-header>
+  <view class="searchList">
+  <block wx:for="{{hotSearchList}}" wx:key="{{first}}">
+    <view class="tag">{{item.first}}</view>
+  </block>
+</view>
+</view>
+
+

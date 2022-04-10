@@ -1,1 +1,26 @@
 /* pages/Home-music-search/index.wxss */
+page {
+  padding: 0 20rpx;
+}
+
+.hotList {
+  padding: 10rpx;
+}
+
+.hotList .searchList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotList .tag {
+  font-size: 26rpx;
+  background-color: #fff;
+  padding: 10rpx 12rpx;
+  border-radius: 16rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.hotList .tag:first-of-type {
+  color: #ff6600;
+}
