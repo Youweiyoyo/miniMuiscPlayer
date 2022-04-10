@@ -27,6 +27,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 右侧点击更多时向外抛出的方法
+    handleClick(){
+      this.triggerEvent('RightClick')
+    }
   }
 })

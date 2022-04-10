@@ -1,5 +1,5 @@
 // pages/Home-music/index.js
-import { rankingStore } from '../../store/index'
+import { rankingStore, rankMap } from '../../store/index'
 import { getBannerData, getSongList } from "../../api/api_music/index";
 import getElmHeight from "../../utils/getElementHeight";
 import throttle from "../../utils/throttle";
@@ -134,7 +134,6 @@ Page({
      */
     getRankingStoreDataMethods(idx){
       return (res) => {
-        console.log(res, "Res~~~");
         if(Object.keys(res).length === 0) return;
         const name = res.name
         const coverImageUrl = res.coverImgUrl
@@ -144,5 +143,32 @@ Page({
         const newRankings = {...this.data.rankings, [idx]: rankingObj}
         this.setData({rankings: newRankings})
       }
+    },
+
+    /**
+     * 推荐歌曲更多点击
+     */
+    RecommendClick(){
+      wx.navigateTo({
+        url: '/pages/Home-music-deatil/index',
+      })
+    },
+
+    /**
+     * 巅峰榜点击
+     */
+    RankingItemClick(event){
+      const { idx }= event.currentTarget.dataset
+      const RankingNage = rankMap[idx]
+      this.navigateToDeatil(RankingNage)
+    },
+
+    /**
+     * 封装巅峰榜跳转方法
+     */
+    navigateToDeatil(name){
+      wx.navigateTo({
+        url: `/pages/Home-music-deatil/index?Ranking=${name}`,
+      })
     }
 })

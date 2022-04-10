@@ -39,4 +39,4 @@ const rankingStore = new HYEventStore({
 
 // 由于导入方式的不同，所以不可以使用 默认导出
 // export default rankingStore
-export { rankingStore }
+export { rankingStore, rankMap }
