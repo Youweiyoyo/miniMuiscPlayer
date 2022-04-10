@@ -3,7 +3,7 @@
   <scroll-view class="list" scroll-x>
     <block wx:for="{{item}}" wx:key="id">
       <view class="list-item">
-        <menu-item menuItem="{{item}}"></menu-item>
+        <menu-item menuItem="{{item}}" bindtap="handleMenuItem" data-item="{{item}}"></menu-item>
       </view>
     </block>
   </scroll-view>

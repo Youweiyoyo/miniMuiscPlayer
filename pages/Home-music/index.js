@@ -168,7 +168,7 @@ Page({
      */
     navigateToDeatil(name){
       wx.navigateTo({
-        url: `/pages/Home-music-deatil/index?Ranking=${name}`,
+        url: `/pages/Home-music-deatil/index?Ranking=${name}&type=Rank`,
       })
     }
 })

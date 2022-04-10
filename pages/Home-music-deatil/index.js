@@ -1,5 +1,6 @@
 // pages/Home-music-deatil/index.js
 import { rankingStore } from '../../store/index'
+import { getMusicInfoDetail } from '../../api/api_music/index'
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     RankingName: "",
-    RankingInfo: {}
+    RankingInfo: {},
+    type: ""
   },
 
   /**
@@ -15,8 +17,15 @@ Page({
    */
   onLoad(options) {
     const { Ranking } = options
-    rankingStore.onState(Ranking, this.monitorStore)
-    this.setData({RankingName: Ranking})
+    const { type } = options
+    this.setData({type: type})
+    if(type === 'Rank'){
+      rankingStore.onState(Ranking, this.monitorStore)
+      this.setData({RankingName: Ranking})
+    }else if(type === 'menu'){
+      const { id } = options 
+      this.getmusicDetail(id)
+    }
   },
 
   /**
@@ -44,7 +53,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    rankingStore.offState(this.data.RankingName, this.monitorStore)
+    if(this.data.RankingName){
+      rankingStore.offState(this.data.RankingName, this.monitorStore)
+    }
   },
 
   /**
@@ -73,5 +84,13 @@ Page({
    */
   monitorStore(res){
     this.setData({RankingInfo: res})
+  },
+
+  /**
+   * 获取歌单详情
+   */
+  async getmusicDetail(id){
+    const result = await getMusicInfoDetail(id)
+    this.setData({RankingInfo: result.playlist})
   }
 })

@@ -25,6 +25,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleMenuItem(event){
+      const { id } = event.currentTarget.dataset.item
+      wx.navigateTo({
+        url: `/pages/Home-music-deatil/index?id=${id}&type=menu`,
+      })
+    }
   }
 })
