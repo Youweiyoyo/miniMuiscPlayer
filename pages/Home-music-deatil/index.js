@@ -1,18 +1,22 @@
 // pages/Home-music-deatil/index.js
+import { rankingStore } from '../../store/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    RankingName: "",
+    RankingInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options.Ranking, "options~~~");
+    const { Ranking } = options
+    rankingStore.onState(Ranking, this.monitorStore)
+    this.setData({RankingName: Ranking})
   },
 
   /**
@@ -40,7 +44,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    rankingStore.offState(this.data.RankingName, this.monitorStore)
   },
 
   /**
@@ -62,5 +66,12 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  /**
+   * store 监听事件
+   */
+  monitorStore(res){
+    this.setData({RankingInfo: res})
   }
 })

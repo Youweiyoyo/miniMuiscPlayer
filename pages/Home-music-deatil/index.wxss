@@ -1,1 +1,4 @@
 /* pages/Home-music-deatil/index.wxss */
+page {
+  padding: 0 20rpx;
+}

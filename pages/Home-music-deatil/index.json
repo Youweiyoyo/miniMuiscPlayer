@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "arrea-header":"/components/area-header/index",
+    "deatil-item": "/components/music-deatil-item/index"
+  }
 }

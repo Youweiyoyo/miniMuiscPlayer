@@ -1,0 +1,13 @@
+<!--components/music-deatil-item/index.wxml-->
+<view class="item">
+  <view class="index">{{index}}</view>
+  <view class="info">
+    <view class="name">{{deatilItem.name}}</view>
+    <view class="source">
+      <image class="icon" src="/assets/images/icons/sq_icon.png"></image>
+      <text class="leftText">{{deatilItem.ar[0].name}}</text>
+      <text class="fenge" wx:if="{{deatilItem.alia[0]}}">·</text>
+      <text class="rightText" wx:if="{{deatilItem.alia[0]}}">{{deatilItem.alia[0]}}</text>
+    </view>
+  </view>
+</view>

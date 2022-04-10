@@ -1,2 +1,8 @@
 <!--pages/Home-music-deatil/index.wxml-->
-<text>pages/Home-music-deatil/index.wxml</text>
+<arrea-header title="{{RankingInfo.name}}" showRight="{{false}}"></arrea-header>
+
+<view class="song-list">
+  <block wx:for="{{RankingInfo.tracks}}" wx:key="id">
+    <deatil-item deatilItem="{{item}}" index="{{index + 1}}"></deatil-item>
+  </block>
+</view>
