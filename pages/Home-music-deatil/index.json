@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "arrea-header":"/components/area-header/index",
-    "deatil-item": "/components/music-deatil-item/index"
+    "deatil-item": "/components/music-deatil-item/index",
+    "deatil-header": "/components/music-deatil-header/index"
   }
 }

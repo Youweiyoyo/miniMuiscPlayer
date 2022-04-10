@@ -1,0 +1,30 @@
+<!--components/music-deatil-header/index.wxml-->
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="header">
+    <!--  背景  -->
+    <image class="bg-image" mode="aspectFill" src="{{RankingInfo.coverImgUrl}}"></image>
+    <view class="bg-cover">
+    <!-- 内容 -->
+      <view class="content-top">
+        <image class="image" src="{{RankingInfo.coverImgUrl}}" mode="aspectFill"></image>
+        <view class="info">
+          <view class="title">{{RankingInfo.name}}</view>
+          <view class="anthor">
+            <image class="avatar" mode="aspectFill" src="{{RankingInfo.creator.avatarUrl}}"></image>
+            <text class="nickName">{{RankingInfo.creator.nickname}}</text>
+          </view>
+          <view class="desc">简介: {{RankingInfo.description}}</view>
+        </view>
+      </view>
+      <view class="content-bottom">
+        <view class="favor item">
+          <image class="icon" mode="widthFix" src="/assets/images/icons/favor_icon.png"></image>
+          <text class="text">{{format.formatCont(RankingInfo.playCount)}}</text>
+        </view>
+        <view class="shart item">
+          <image class="icon" mode="widthFix" src="/assets/images/icons/share_icon.png"></image>
+          <text class="text">分享</text>
+        </view>
+      </view>
+    </view>
+  </view>

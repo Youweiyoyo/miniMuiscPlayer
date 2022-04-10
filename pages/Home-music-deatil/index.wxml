@@ -3,6 +3,7 @@
   <arrea-header title="{{RankingInfo.name}}" showRight="{{false}}"></arrea-header>
 </block>
 <block wx:elif="{{type === 'menu'}}">
+  <deatil-header RankingInfo="{{RankingInfo}}"></deatil-header>
 </block>
 
 <view class="song-list">
